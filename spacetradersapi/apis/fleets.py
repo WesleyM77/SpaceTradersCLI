@@ -1,13 +1,12 @@
 import openapi_client
 from openapi_client import ShipRequirements
 
-from spacetradersapi import database
+from spacetradersapi import database, util
 from rich import print
 from rich.console import Console
 from rich.table import Table
 from datetime import datetime
 from rich.panel import Panel
-from rich.columns import Columns
 from rich.tree import Tree
 
 console = Console()
@@ -37,8 +36,8 @@ def get_ships():
                     eta = arrival_in - today
                     eta = str(eta)[0:-7]
 
-                cargo = str(ship.cargo.units) + '/' + str(ship.cargo.capacity)
-                fuel = str(ship.fuel.current) + '/' + str(ship.fuel.capacity)
+                cargo = util.shade_percentage(ship.cargo.units, ship.cargo.capacity, full_good=False)
+                fuel = util.shade_percentage(ship.fuel.current, ship.fuel.capacity)
 
                 table.add_row(ship.symbol, ship.registration.role, ship.nav.system_symbol, ship.nav.waypoint_symbol,
                               ship.nav.status, ship.nav.flight_mode, ship.nav.route.origin.symbol,

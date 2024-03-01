@@ -1,6 +1,6 @@
 from datetime import datetime
 import openapi_client
-from spacetradersapi import database
+from spacetradersapi import database, util
 from rich import print
 from rich.console import Console
 from rich.table import Table
@@ -37,7 +37,7 @@ def get_contracts():
                     until_deadline = str(until_deadline)[0:-10]
 
                 accepted = c.accepted
-                accepted_string = 'Yes' if accepted else 'No'
+                accepted_string = util.yes_no(accepted)
                 until_accept_deadline = '-'
                 if not accepted:
                     accept_deadline = c.deadline_to_accept.replace(tzinfo=None)
