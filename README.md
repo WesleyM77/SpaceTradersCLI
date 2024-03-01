@@ -1,0 +1,1 @@
+# A VERY Bad SpaceTraders v2 API CLI Client

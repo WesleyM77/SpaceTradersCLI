@@ -1,0 +1,5 @@
+typer==0.3.2
+colorama==0.4.4
+shellingham==1.4.0
+requests~=2.31.0
+rich~=13.7.1

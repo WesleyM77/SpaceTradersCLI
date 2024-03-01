@@ -1,0 +1,6 @@
+/venv/
+/.idea/
+/spacetradersapi/__pycache__/
+/spacetradersapi/apis/__pycache__/
+
+*.db
